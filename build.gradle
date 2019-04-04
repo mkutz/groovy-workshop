@@ -5,6 +5,17 @@ plugins {
 
 sourceCompatibility = 11
 
+sourceSets {
+    main {
+        java {
+            srcDirs = [] // don't compile Java code twice
+        }
+        groovy {
+            srcDirs = [ 'src/main/groovy', 'src/main/java' ]
+        }
+    }
+}
+
 repositories {
     mavenCentral()
     mavenLocal()
