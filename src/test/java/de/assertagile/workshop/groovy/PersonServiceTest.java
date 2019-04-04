@@ -106,6 +106,17 @@ class PersonServiceTest {
     }
 
     @Test
+    @DisplayName("findPersons returns fulfilling the given predicate")
+    void findPersonsByPredicate() {
+        // given
+        PersonService service = new PersonService();
+        service.addPersons(TODD, TINA, BEAR, ANDREA);
+
+        // expect
+        assertEquals(Set.of(BEAR), service.findPersons(person -> person.getName().length() > 11));
+    }
+
+    @Test
     @DisplayName("addPerson does not add duplicates")
     void addPerson() {
         // given
