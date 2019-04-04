@@ -1,5 +1,7 @@
 # Groovy Workshop
 
+[![Build Status](https://travis-ci.org/mkutz/groovy-workshop.svg?branch=master)](https://travis-ci.org/mkutz/groovy-workshop)
+
 ## Objectives
 
 - [ ] Take a look at the [`Person` Java class] and the [`PersonService` Java class] and run all tests once.
