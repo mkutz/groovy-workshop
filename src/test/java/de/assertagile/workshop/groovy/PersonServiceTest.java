@@ -36,7 +36,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA);
 
         // expect
-        assertEquals(service.getAllPersons(), Set.of(TODD, TINA, BEAR, ANDREA));
+        assertEquals(Set.of(TODD, TINA, BEAR, ANDREA), service.getAllPersons());
     }
 
     @Test
@@ -47,7 +47,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA);
 
         // expect
-        assertEquals(service.findPerson(TODD.getName()), Optional.of(TODD));
+        assertEquals(Optional.of(TODD), service.findPerson(TODD.getName()));
     }
 
     @Test
@@ -69,7 +69,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA);
 
         // expect
-        assertEquals(service.findPersons(Pattern.compile("^T.*$")), Set.of(TINA, TODD));
+        assertEquals(Set.of(TINA, TODD), service.findPersons(Pattern.compile("^T.*$")));
     }
 
     @Test
@@ -80,7 +80,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA);
 
         // expect
-        assertEquals(service.findPersons(ANDREA.getBirthday()), Set.of(ANDREA));
+        assertEquals(Set.of(ANDREA), service.findPersons(ANDREA.getBirthday()));
     }
 
     @Test
@@ -91,7 +91,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA);
 
         // expect
-        assertEquals(service.findPersons((Object) Pattern.compile("^T.*$")), Set.of(TINA, TODD));
+        assertEquals(Set.of(TINA, TODD), service.findPersons((Object) Pattern.compile("^T.*$")));
     }
 
     @Test
@@ -102,6 +102,20 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA);
 
         // expect
-        assertEquals(service.findPersons((Object) ANDREA.getBirthday()), Set.of(ANDREA));
+        assertEquals(Set.of(ANDREA), service.findPersons((Object) ANDREA.getBirthday()));
+    }
+
+    @Test
+    @DisplayName("addPerson does not add duplicates")
+    void addPerson() {
+        // given
+        PersonService service = new PersonService();
+        service.addPersons(TODD);
+
+        // when
+        service.addPersons(new Person(TODD.getName(), TODD.getBirthday()));
+
+        // then
+        assertEquals(Set.of(TODD), service.getAllPersons());
     }
 }
