@@ -3,6 +3,7 @@ Michael Kutz <mail@assertagile.de>
 v0.1, 2019-04-05
 :toc:
 :experimental:
+:icons: font
 :source-highlighter: coderay
 :homepage: https://github.com/mkutz/groovy-workshop
 :groovy-homepage: http://www.groovy-lang.org/
