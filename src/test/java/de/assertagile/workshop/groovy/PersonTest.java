@@ -128,10 +128,8 @@ class PersonTest {
         String string = person.toString();
 
         // then
-        assertAll(
-                () -> assertTrue(string.contains(person.getName())),
-                () -> assertTrue(string.contains(person.getBirthday().toString())),
-                () -> assertTrue(string.contains(person.getEmailAddress()))
-        );
+        assertTrue(string.contains(person.getName()));
+        assertTrue(string.contains(person.getBirthday().toString()));
+        assertTrue(string.contains(person.getEmailAddress()));
     }
 }
