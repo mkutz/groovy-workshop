@@ -83,7 +83,7 @@ You might want to look at the section about {groovy-differences}#_lambdas[Lambda
 // lambdas & colures
 - [ ] Again try to make link:{person-service-groovy-class}[`PersonService` Groovy class] truly Groovy.
 
-== Part 2: Groovy Testing
+== Part 2: Groovy Testing (Basics)
 
 Now we are going to convert our tests over to the Groovy side.
 
@@ -127,8 +127,9 @@ In this part we add some more Groovy power to the existing classes and tests.
 // immutable => map constructor
 - [ ] Read {groovy-json}[Parsing and producing JSON] and extend the link:{person-groovy-class}[`Person` Groovy class] with a `toJson` method which returns the properties in pretty printed JSON. Don't forget to extend link:{person-groovy-test}[`PersonTest`] (first).
 // JSONOutput, JSONSlurper
+- [ ] ...
 
-== Part 4: Domain Specific Languages
+== Part 4: Domain Specific Languages (Outlook)
 
 This part is about how to create {groovy-dsls}[domain specific languages with Groovy]. This is less formal then you might think. Files will still be `.groovy` files, you will still compile them the same way and your IDE will still understand, what you are doing.
 
