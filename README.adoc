@@ -20,7 +20,6 @@ v0.1, 2019-04-05
 :person-java-test: src/test/java/de/assertagile/workshop/groovy/PersonTest.java
 :person-groovy-test: src/test/groovy/de/assertagile/workshop/groovy/PersonTest.groovy
 :person-service-java-test: src/test/java/de/assertagile/workshop/groovy/PersonServiceTest.java
-:person-java-test: src/test/groovy/de/assertagile/workshop/groovy/PersonTest.groovy
 :person-service-groovy-test: src/test/groovy/de/assertagile/workshop/groovy/PersonServiceTest.groovy
 :groovy-transform-package: http://docs.groovy-lang.org/latest/html/gapi/groovy/transform/package-summary.html
 :groovy-testing: http://groovy-lang.org/testing.html
