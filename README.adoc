@@ -1,0 +1,110 @@
+= Groovy Workshop image:https://travis-ci.org/mkutz/groovy-workshop.svg?branch=master["Build Status", link="https://travis-ci.org/mkutz/groovy-workshop"]
+Michael Kutz <mail@assertagile.de>
+v0.1, 2019-04-05
+:toc:
+:experimental:
+:source-highlighter: coderay
+:homepage: https://github.com/mkutz/groovy-workshop
+:groovy-homepage: http://www.groovy-lang.org/
+:gradle-homepage: https://gradle.org/
+:maven-homepage: https://maven.apache.org/
+:groovy-docs-maven-integration: http://docs.groovy-lang.org/latest/html/documentation/tools-groovyc.html#_maven_integration
+:groovy-differences: http://groovy-lang.org/differences.html
+:groovy-style-guide: http://groovy-lang.org/style-guide.html
+:person-class: src/main/java/de/assertagile/workshop/groovy/Person.java
+:person-java-class: src/main/java/de/assertagile/workshop/groovy/PersonService.java
+:person-groovy-class: src/main/groovy/de/assertagile/workshop/groovy/Person.groovy
+:person-service-groovy-class: src/main/groovy/de/assertagile/workshop/groovy/Person.groovy
+:person-service-java-class: src/main/java/de/assertagile/workshop/groovy/Person.java
+:person-java-test: src/test/java/de/assertagile/workshop/groovy/PersonTest.java
+:person-service-java-test: src/test/java/de/assertagile/workshop/groovy/PersonServiceTest.java
+:person-java-test: src/test/groovy/de/assertagile/workshop/groovy/PersonTest.groovy
+:person-service-groovy-test: src/test/groovy/de/assertagile/workshop/groovy/PersonServiceTest.groovy
+
+Workshop for {groovy-homepage}[Groovy] programming language with a special focus on Java(TM) developers.
+
+== Setup
+
+This workshop uses {gradle-homepage}[Gradle] as its build tool. Generally it is also possible to run Groovy via {maven-homepage}[Maven] (see {groovy-docs-maven-integration}[Groovy docs on Maven integration]) but {gradle-homepage}[Gradle]'s support for different source sets -- e.g. one for Groovy and Java -- is very useful for this workshop.
+
+== Part 1: Syntax Differences to Java
+
+In this part we'll try to convert a Plain Old Java Object (POJO) into a Plain Old Groovy Object (POGO) to find the most basic differences between Java and Groovy.
+
+All answers you might be looking for can be found in the {groovy-differences}[Differences with Java] (and the {groovy-style-guide}[Groovy Style Guide]).
+
+=== Objectives
+
+- [ ] Take a look at the project, especially at link:{person-java-class}[`Person` Java class]. Try to run the tests:
++
+[source,bash]
+----
+./gradlew test
+----
+- [ ] Let's turn the link:{person-java-class}[`Person` Java class] into a Groovy class. Just move it from `src/main/java` to `src/main/groovy` and change the filename extension from `.java` to `.groovy`
++
+[source,bash,subs=attributes]
+----
+mv {person-java-class} \
+   {person-groovy-class}
+----
++
+Run the tests again.
+- [ ] Understand & fix the error. You might want to read the {groovy-differences}#_behaviour_of_code_code[Behaviour of `==`] again.
+- [ ] Keeping the {groovy-differences}[Differences with Java] in mind, make the link:{person-groovy-class} as Groovy as you can. Run the tests after each change.
++
+Hint: my solution has only 50 lines of code (keeping white space as is)
++
+NOTE: There is a IntelliJ action kbd:[Ctrl+Shift+A] called "cleanup code".
++
+- [ ] Now let's move something with more logic over. Turn link:{person-service-java-class}[`PersonService`] into a Groovy class.
++
+[source,bash,subs=attributes]
+----
+mv {person-service-java-class} \
+   {person-service-groovy-class}
+----
++
+Try to compile.
+- [ ] Fix the compile errors and run the tests.
++
+You might want to look at the section about {groovy-differences}#_lambdas[Lambdas].
+- [ ] Again try to make [`PersonService` Groovy class] truly Groovy.
+
+== Part 2: Groovy Testing
+
+Now we are going to convert our tests over to the Groovy side.
+
+- [ ] Let's just move the link:{person-java-test}[`PersonTest` Java test] first as we did with the classes before:
++
+[source,bash,subs=attributes]
+----
+mv {person-java-test} \
+   {person-groovy-test}
+----
++
+Run it and make it Groovy.
+- [ ] Now also move link:{person-service-java-test}[`PersonServiceTest` Java test]:
+[source,bash,subs=attributes]
++
+----
+mv src/test/java/de/assertagile/workshop/groovy/PersonServiceTest.java \
+   src/test/groovy/de/assertagile/workshop/groovy/PersonServiceTest.groovy
+----
++
+There will be a compile error. Maybe you can find a creative way to fix that without using a `\` in the {groovy-style-guide}[Groovy Style Guide].
+- [ ] Try to fix the remaining tests. You might find {groovy-differences}#_multi_methods[the paragraph about Multi-methods] pretty useful here.
+
+
+== Content TODO
+- [x] Collection literals
+- [ ] Map constructor
+- [ ] Named parameters
+- [ ] Type conversions
+- [ ] String literals
+- [ ] Groovy Transform (vs Lombok)
+- [ ] XML/JSON Slurper
+- [ ] SQL (?)
+- [ ] Spock (Teaser)
+
+
