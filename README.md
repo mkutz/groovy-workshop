@@ -20,7 +20,7 @@ All answers you might be looking for can be found in the [Differences with Java]
   ```bash
   ./gradlew test
   ```
-- [ ] Let's turn the [`PersonService` Java class] into a Groovy class. Just move it from `src/main/java` to `src/main/groovy` and change the filename extension from `.java` to `.groovy`
+- [ ] Let's turn the [`Person` Java class] into a Groovy class. Just move it from `src/main/java` to `src/main/groovy` and change the filename extension from `.java` to `.groovy`
   ```bash
   mv src/main/java/de/assertagile/workshop/groovy/Person.java \
      src/main/groovy/de/assertagile/workshop/groovy/Person.groovy
