@@ -18,9 +18,14 @@ v0.1, 2019-04-05
 :person-service-groovy-class: src/main/groovy/de/assertagile/workshop/groovy/Person.groovy
 :person-service-java-class: src/main/java/de/assertagile/workshop/groovy/Person.java
 :person-java-test: src/test/java/de/assertagile/workshop/groovy/PersonTest.java
+:person-groovy-test: src/test/groovy/de/assertagile/workshop/groovy/PersonTest.groovy
 :person-service-java-test: src/test/java/de/assertagile/workshop/groovy/PersonServiceTest.java
 :person-java-test: src/test/groovy/de/assertagile/workshop/groovy/PersonTest.groovy
 :person-service-groovy-test: src/test/groovy/de/assertagile/workshop/groovy/PersonServiceTest.groovy
+:groovy-transform-package: http://docs.groovy-lang.org/latest/html/gapi/groovy/transform/package-summary.html
+:groovy-testing: http://groovy-lang.org/testing.html
+:groovy-json: http://groovy-lang.org/json.html
+:groovy-dsls: http://groovy-lang.org/dsls.html
 
 Workshop for {groovy-homepage}[Groovy] programming language with a special focus on Java(TM) developers.
 
@@ -33,8 +38,6 @@ This workshop uses {gradle-homepage}[Gradle] as its build tool. Generally it is 
 In this part we'll try to convert a Plain Old Java Object (POJO) into a Plain Old Groovy Object (POGO) to find the most basic differences between Java and Groovy.
 
 All answers you might be looking for can be found in the {groovy-differences}[Differences with Java] (and the {groovy-style-guide}[Groovy Style Guide]).
-
-=== Objectives
 
 - [ ] Take a look at the project, especially at link:{person-java-class}[`Person` Java class]. Try to run the tests:
 +
@@ -52,12 +55,19 @@ mv {person-java-class} \
 +
 Run the tests again.
 - [ ] Understand & fix the error. You might want to read the {groovy-differences}#_behaviour_of_code_code[Behaviour of `==`] again.
+// equals and `==`
 - [ ] Keeping the {groovy-differences}[Differences with Java] in mind, make the link:{person-groovy-class} as Groovy as you can. Run the tests after each change.
 +
 Hint: my solution has only 50 lines of code (keeping white space as is)
 +
-NOTE: There is a IntelliJ action kbd:[Ctrl+Shift+A] called "cleanup code".
+NOTE: There is a IntelliJ action (kbd:[Ctrl+Shift+A]) called "cleanup code".
 +
+// optional `;`
+// `public` by default
+// property fields
+// optional `return` -> isOfAge
+// string interpolation -> toString
+// optional parameter typing -> equals
 - [ ] Now let's move something with more logic over. Turn link:{person-service-java-class}[`PersonService`] into a Groovy class.
 +
 [source,bash,subs=attributes]
@@ -70,7 +80,8 @@ Try to compile.
 - [ ] Fix the compile errors and run the tests.
 +
 You might want to look at the section about {groovy-differences}#_lambdas[Lambdas].
-- [ ] Again try to make [`PersonService` Groovy class] truly Groovy.
+// lambdas & colures
+- [ ] Again try to make link:{person-service-groovy-class}[`PersonService` Groovy class] truly Groovy.
 
 == Part 2: Groovy Testing
 
@@ -85,6 +96,7 @@ mv {person-java-test} \
 ----
 +
 Run it and make it Groovy.
+// JUnit 5 + Groovy
 - [ ] Now also move link:{person-service-java-test}[`PersonServiceTest` Java test]:
 [source,bash,subs=attributes]
 +
@@ -94,18 +106,44 @@ mv src/test/java/de/assertagile/workshop/groovy/PersonServiceTest.java \
 ----
 +
 There will be a compile error. Maybe you can find a creative way to fix that without using a `\` in the {groovy-style-guide}[Groovy Style Guide].
+// slashy strings
+// Groovy regex
+- [ ] The output of the assertion errors in our tests is quite useless. Let's replace the assertions with {groovy-testing}#_power_assertions[Power Assertions].
+// power assertions
 - [ ] Try to fix the remaining tests. You might find {groovy-differences}#_multi_methods[the paragraph about Multi-methods] pretty useful here.
+// runtime method selection
+- [ ] Make the test truly Groovy.
+// collection literals
+- [ ] Change the various service initializations to use the {groovy-style-guide}#_initializing_beans_with_named_parameters_and_the_default_constructor[named parameters constructor].
+// named parameters constructor
 
+== Part 3: Let's get Groovy
 
-== Content TODO
-- [x] Collection literals
-- [ ] Map constructor
-- [ ] Named parameters
-- [ ] Type conversions
-- [ ] String literals
-- [ ] Groovy Transform (vs Lombok)
-- [ ] XML/JSON Slurper
-- [ ] SQL (?)
-- [ ] Spock (Teaser)
+In this part we add some more Groovy power to the existing classes and tests.
 
+- [ ] That `hashCode` and `equals` implementation are noisy and easily forgotten to be adjusted. Let's play with annotations from the {groovy-transform-package}[`groovy.transform` package].
+// transform toString & hashCode
+- [ ] The email address should be read-only, too. See if you find an even better annotation now.
+// immutable => map constructor
+- [ ] Read {groovy-json}[Parsing and producing JSON] and extend the link:{person-groovy-class}[`Person` Groovy class] with a `toJson` method which returns the properties in pretty printed JSON. Don't forget to extend link:{person-groovy-test}[`PersonTest`] (first).
+// JSONOutput, JSONSlurper
 
+== Part 4: Domain Specific Languages
+
+This part is about how to create {groovy-dsls}[domain specific languages with Groovy]. This is less formal then you might think. Files will still be `.groovy` files, you will still compile them the same way and your IDE will still understand, what you are doing.
+
+- [ ] Replace the `addAll` method with the `<<<` operator, so the following test succeeds:
++
+[source,groovy]
+----
+service <<< [TODD, ANDREA]
+assert service.persons == [TODD, ANDREA]
+----
+- [ ] Change the predicate variant of `findPersons`, so the following test works:
++
+[source,groovy]
+----
+assert service.findPersons { name == "Todd Ler" } == TODD
+----
++
+Hint: The {groovy-dsls}#section-delegatesto[`@DelegatesTo` annotation] might help.
