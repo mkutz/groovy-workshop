@@ -8,8 +8,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PersonServiceTest {
 
@@ -84,25 +83,14 @@ class PersonServiceTest {
     }
 
     @Test
-    @DisplayName("findPersons returns all persons matching the given pattern object")
-    void findPersonsByObject1() {
+    @DisplayName("findPersons by object throws IllegalArgumentException")
+    void findPersonsByObject() {
         // given
         PersonService service = new PersonService();
         service.addPersons(TODD, TINA, BEAR, ANDREA);
 
         // expect
-        assertEquals(Set.of(TINA, TODD), service.findPersons((Object) Pattern.compile("^T.*$")));
-    }
-
-    @Test
-    @DisplayName("findPersons returns all persons with the given birthday object")
-    void findPersonsByObject2() {
-        // given
-        PersonService service = new PersonService();
-        service.addPersons(TODD, TINA, BEAR, ANDREA);
-
-        // expect
-        assertEquals(Set.of(ANDREA), service.findPersons((Object) ANDREA.getBirthday()));
+        assertThrows(IllegalArgumentException.class, () -> service.findPersons((Object) Pattern.compile("^T.*$")));
     }
 
     @Test

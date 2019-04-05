@@ -38,12 +38,7 @@ public class PersonService {
     }
 
     public Collection<Person> findPersons(Object criteria) {
-        if (criteria instanceof Pattern) {
-            return findPersons((Pattern) criteria);
-        } else if (criteria instanceof LocalDate) {
-            return findPersons((LocalDate) criteria);
-        }
-        return findPerson(criteria.toString()).map(List::of).orElse(Collections.emptyList());
+        throw new IllegalArgumentException("This is not implemented, yet!");
     }
 
     public void addPersons(Person... persons) {
