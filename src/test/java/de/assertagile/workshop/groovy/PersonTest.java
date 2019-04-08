@@ -54,7 +54,7 @@ class PersonTest {
     @SuppressWarnings("SimplifiableJUnitAssertion")
     void equalsAndHashCode1() {
         // given
-        Person first = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1),"tina.acher@assertagile.de");
+        Person first = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1), "tina.acher@assertagile.de");
         Person second = new Person(first.getName(), first.getBirthday(), first.getEmailAddress());
 
         // expect
@@ -68,7 +68,7 @@ class PersonTest {
     @SuppressWarnings("SimplifiableJUnitAssertion")
     void equalsAndHashCode2() {
         // given
-        Person first = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1),"tina.acher@assertagile.de");
+        Person first = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1), "tina.acher@assertagile.de");
         Person second = new Person(first.getName() + "a", first.getBirthday(), first.getEmailAddress());
 
         // expect
@@ -81,7 +81,7 @@ class PersonTest {
     @SuppressWarnings("SimplifiableJUnitAssertion")
     void equalsAndHashCode3() {
         // given
-        Person first = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1),"tina.acher@assertagile.de");
+        Person first = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1), "tina.acher@assertagile.de");
         Person second = new Person("Diff A Rent", first.getBirthday(), first.getEmailAddress());
 
         // expect
@@ -95,7 +95,7 @@ class PersonTest {
     @SuppressWarnings("SimplifiableJUnitAssertion")
     void equalsAndHashCode4() {
         // given
-        Person first = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1),"tina.acher@assertagile.de");
+        Person first = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1), "tina.acher@assertagile.de");
         Person second = new Person(first.getName(), first.getBirthday().minusDays(4), first.getEmailAddress());
 
         // expect
@@ -109,7 +109,7 @@ class PersonTest {
     @SuppressWarnings("SimplifiableJUnitAssertion")
     void equalsAndHashCode5() {
         // given
-        Person first = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1),"tina.acher@assertagile.de");
+        Person first = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1), "tina.acher@assertagile.de");
         Person second = new Person(first.getName(), first.getBirthday(), "tina.acher@rewe-digital.com");
 
         // expect
@@ -122,7 +122,7 @@ class PersonTest {
     @DisplayName("toString contains all property values")
     void toString1() {
         // given
-        Person person = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1),"tina.acher@assertagile.de");
+        Person person = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1), "tina.acher@assertagile.de");
 
         // when
         String string = person.toString();
