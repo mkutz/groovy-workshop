@@ -38,7 +38,7 @@ In this part we'll try to convert a Plain Old Java Object (POJO) into a Plain Ol
 
 All answers you might be looking for can be found in the {url-groovy-differences}[Differences with Java] (and the {url-groovy-style-guide}[Groovy Style Guide]).
 
-- [ ] Take a look at the project, especially at link:{path-person-java-class}[`Person` Java class]. Try to run the tests:
+- [x] Take a look at the project, especially at link:{path-person-java-class}[`Person` Java class]. Try to run the tests:
 +
 [source,bash]
 ----
