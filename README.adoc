@@ -72,7 +72,7 @@ NOTE: There is a IntelliJ action (kbd:[Ctrl+Shift+A]) called "cleanup code".
 
 == Part 2: More Differences
 
-- [ ] Now let's move something with more logic over. Turn link:{path-person-service-java-class}[`PersonService`] into a Groovy class.
+- [x] Now let's move something with more logic over. Turn link:{path-person-service-java-class}[`PersonService`] into a Groovy class.
 +
 [source,bash,subs=attributes]
 ----

@@ -1,11 +1,10 @@
-package de.assertagile.workshop.groovy;
+package de.assertagile.workshop.groovy
 
-import java.time.LocalDate;
-import java.util.*;
-import java.util.function.Predicate;
-import java.util.regex.Pattern;
+import java.time.LocalDate
+import java.util.function.Predicate
+import java.util.regex.Pattern
 
-import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.toSet
 
 public class PersonService {
 
@@ -17,19 +16,19 @@ public class PersonService {
 
     public Optional<Person> findPerson(String name) {
         return persons.stream()
-                .filter(person -> person.getName().equals(name))
+                .filter({ person -> person.getName().equals(name) })
                 .findFirst();
     }
 
     public Collection<Person> findPersons(LocalDate birthday) {
         return persons.stream()
-                .filter(person -> person.getBirthday().equals(birthday))
+                .filter({ person -> person.getBirthday().equals(birthday) })
                 .collect(toSet());
     }
 
     public Collection<Person> findPersons(Pattern regex) {
         return persons.stream()
-                .filter(person -> regex.matcher(person.getName()).matches())
+                .filter({ person -> regex.matcher(person.getName()).matches() })
                 .collect(toSet());
     }
 
