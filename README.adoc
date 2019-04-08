@@ -55,7 +55,7 @@ mv {path-person-java-class} \
 Run the tests again, understand & fix the error.
 You might want to read the {url-groovy-differences}#_behaviour_of_code_code[Behaviour of `==`] again.
 // equals and `==`
-- [ ] Keeping the {url-groovy-differences}[Differences with Java] in mind, make the link:{path-person-groovy-class} as Groovy as you can.
+- [x] Keeping the {url-groovy-differences}[Differences with Java] in mind, make the link:{path-person-groovy-class} as Groovy as you can.
 Run the tests after each change.
 +
 Hint: my solution has only 50 lines of code (keeping white space as is)
