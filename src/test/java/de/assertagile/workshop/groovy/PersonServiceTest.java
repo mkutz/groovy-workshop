@@ -24,7 +24,7 @@ class PersonServiceTest {
         PersonService service = new PersonService();
 
         // expect
-        assertEquals(service.getAllPersons(), Set.of());
+        assertEquals(Set.of(), service.getAllPersons());
     }
 
     @Test
