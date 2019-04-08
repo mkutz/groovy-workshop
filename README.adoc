@@ -68,6 +68,7 @@ NOTE: There is a IntelliJ action (kbd:[Ctrl+Shift+A]) called "cleanup code".
 // optional `return` -> isOfAge
 // string interpolation -> toString
 // optional parameter typing -> equals
+// default parameter values (constructor)
 
 == Part 2: More Differences
 
