@@ -12,11 +12,10 @@ v0.1, 2019-04-05
 :url-groovy-docs-maven-integration: http://docs.groovy-lang.org/latest/html/documentation/tools-groovyc.html#_maven_integration
 :url-groovy-differences: http://groovy-lang.org/differences.html
 :url-groovy-style-guide: http://groovy-lang.org/style-guide.html
-:path-person-class: src/main/java/de/assertagile/workshop/groovy/Person.java
-:path-person-java-class: src/main/java/de/assertagile/workshop/groovy/PersonService.java
+:path-person-java-class: src/main/java/de/assertagile/workshop/groovy/Person.java
 :path-person-groovy-class: src/main/groovy/de/assertagile/workshop/groovy/Person.groovy
-:path-person-service-groovy-class: src/main/groovy/de/assertagile/workshop/groovy/Person.groovy
-:path-person-service-java-class: src/main/java/de/assertagile/workshop/groovy/Person.java
+:path-person-service-java-class: src/main/java/de/assertagile/workshop/groovy/PersonService.java
+:path-person-service-groovy-class: src/main/groovy/de/assertagile/workshop/groovy/PersonService.groovy
 :path-person-java-test: src/test/java/de/assertagile/workshop/groovy/PersonTest.java
 :path-person-groovy-test: src/test/groovy/de/assertagile/workshop/groovy/PersonTest.groovy
 :path-person-service-java-test: src/test/java/de/assertagile/workshop/groovy/PersonServiceTest.java
