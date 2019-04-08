@@ -86,6 +86,8 @@ Fix the compile errors and run the tests.
 You might want to look at the section about {url-groovy-differences}#_lambdas[Lambdas].
 // lambdas & colures
 - [ ] Again try to make link:{path-person-service-groovy-class}[`PersonService` Groovy class] truly Groovy.
+// list sytax
+// find & findAll
 
 == Part 3: Groovy Testing (Basics)
 
