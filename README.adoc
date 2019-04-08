@@ -44,7 +44,7 @@ All answers you might be looking for can be found in the {url-groovy-differences
 ----
 ./gradlew test
 ----
-- [ ] Let's turn the link:{path-person-java-class}[`Person` Java class] into a Groovy class. Just move it from `src/main/java` to `src/main/groovy` and change the filename extension from `.java` to `.groovy`
+- [x] Let's turn the link:{path-person-java-class}[`Person` Java class] into a Groovy class. Just move it from `src/main/java` to `src/main/groovy` and change the filename extension from `.java` to `.groovy`
 +
 [source,bash,subs=attributes]
 ----

@@ -1,7 +1,6 @@
-package de.assertagile.workshop.groovy;
+package de.assertagile.workshop.groovy
 
-import java.time.LocalDate;
-import java.util.Objects;
+import java.time.LocalDate
 
 public class Person {
 
@@ -41,7 +40,7 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this.is(o)) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person that = (Person) o;
         return name.equals(that.name) &&
