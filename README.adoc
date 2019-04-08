@@ -93,7 +93,7 @@ You might want to look at the section about {url-groovy-differences}#_lambdas[La
 
 Now we are going to convert our tests over to the Groovy side.
 
-- [ ] Let's just move the link:{path-person-java-test}[`PersonTest` Java test] first as we did with the classes before:
+- [x] Let's just move the link:{path-person-java-test}[`PersonTest` Java test] first as we did with the classes before:
 +
 [source,bash,subs=attributes]
 ----
