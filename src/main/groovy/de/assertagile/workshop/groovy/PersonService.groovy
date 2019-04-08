@@ -4,43 +4,35 @@ import java.time.LocalDate
 import java.util.function.Predicate
 import java.util.regex.Pattern
 
-import static java.util.stream.Collectors.toSet
+class PersonService {
 
-public class PersonService {
+    private Set<Person> persons = []
 
-    private Set<Person> persons = new HashSet<>();
-
-    public Collection<Person> getAllPersons() {
-        return persons;
+    Collection<Person> getAllPersons() {
+        return persons
     }
 
-    public Optional<Person> findPerson(String name) {
-        return persons.stream()
-                .filter({ person -> person.getName().equals(name) })
-                .findFirst();
+    Optional<Person> findPerson(String name) {
+        Optional.ofNullable(persons.find { it.name == name })
     }
 
-    public Collection<Person> findPersons(LocalDate birthday) {
-        return persons.stream()
-                .filter({ person -> person.getBirthday().equals(birthday) })
-                .collect(toSet());
+    Collection<Person> findPersons(LocalDate birthday) {
+        persons.findAll { it.birthday == birthday }
     }
 
-    public Collection<Person> findPersons(Pattern regex) {
-        return persons.stream()
-                .filter({ person -> regex.matcher(person.getName()).matches() })
-                .collect(toSet());
+    Collection<Person> findPersons(Pattern regex) {
+        persons.findAll { it.name ==~ regex }
     }
 
-    public Collection<Person> findPersons(Predicate<? super Person> predicate) {
-        return persons.stream().filter(predicate).collect(toSet());
+    Collection<Person> findPersons(Predicate<? super Person> predicate) {
+        persons.findAll { predicate.test(it) }
     }
 
-    public Collection<Person> findPersons(Object criteria) {
-        throw new IllegalArgumentException("This is not implemented, yet!");
+    Collection<Person> findPersons(Object criteria) {
+        throw new IllegalArgumentException("This is not implemented, yet!")
     }
 
-    public void addPersons(Person... persons) {
-        this.persons.addAll(Arrays.asList(persons));
+    void addPersons(Person... persons) {
+        this.persons.addAll(persons)
     }
 }
