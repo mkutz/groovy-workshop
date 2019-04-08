@@ -29,7 +29,8 @@ Workshop for {url-groovy-homepage}[Groovy] programming language with a special f
 
 == Setup
 
-This workshop uses {url-gradle-homepage}[Gradle] as its build tool. Generally it is also possible to run Groovy via {url-maven-homepage}[Maven] (see {url-groovy-docs-maven-integration}[Groovy docs on Maven integration]) but {url-gradle-homepage}[Gradle]'s support for different source sets -- e.g. one for Groovy and Java -- is very useful for this workshop.
+This workshop uses {url-gradle-homepage}[Gradle] as its build tool.
+Generally it is also possible to run Groovy via {url-maven-homepage}[Maven] (see {url-groovy-docs-maven-integration}[Groovy docs on Maven integration]) but {url-gradle-homepage}[Gradle]'s support for different source sets -- e.g. one for Groovy and Java -- is very useful for this workshop.
 
 == Part 1: Syntax Differences to Java
 
@@ -51,9 +52,11 @@ mv {path-person-java-class} \
    {path-person-groovy-class}
 ----
 +
-Run the tests again, understand & fix the error. You might want to read the {url-groovy-differences}#_behaviour_of_code_code[Behaviour of `==`] again.
+Run the tests again, understand & fix the error.
+You might want to read the {url-groovy-differences}#_behaviour_of_code_code[Behaviour of `==`] again.
 // equals and `==`
-- [ ] Keeping the {url-groovy-differences}[Differences with Java] in mind, make the link:{path-person-groovy-class} as Groovy as you can. Run the tests after each change.
+- [ ] Keeping the {url-groovy-differences}[Differences with Java] in mind, make the link:{path-person-groovy-class} as Groovy as you can.
+Run the tests after each change.
 +
 Hint: my solution has only 50 lines of code (keeping white space as is)
 +
@@ -65,6 +68,9 @@ NOTE: There is a IntelliJ action (kbd:[Ctrl+Shift+A]) called "cleanup code".
 // optional `return` -> isOfAge
 // string interpolation -> toString
 // optional parameter typing -> equals
+
+== Part 2: More Differences
+
 - [ ] Now let's move something with more logic over. Turn link:{path-person-service-java-class}[`PersonService`] into a Groovy class.
 +
 [source,bash,subs=attributes]
@@ -80,7 +86,7 @@ You might want to look at the section about {url-groovy-differences}#_lambdas[La
 // lambdas & colures
 - [ ] Again try to make link:{path-person-service-groovy-class}[`PersonService` Groovy class] truly Groovy.
 
-== Part 2: Groovy Testing (Basics)
+== Part 3: Groovy Testing (Basics)
 
 Now we are going to convert our tests over to the Groovy side.
 
@@ -102,33 +108,41 @@ mv src/test/java/de/assertagile/workshop/groovy/PersonServiceTest.java \
    src/test/groovy/de/assertagile/workshop/groovy/PersonServiceTest.groovy
 ----
 +
-There will be a compile error. Maybe you can find a creative way to fix that without using a `\` in the {url-groovy-style-guide}[Groovy Style Guide].
+There will be a compile error.
+Maybe you can find a creative way to fix that without using a `\` in the {url-groovy-style-guide}[Groovy Style Guide].
 // slashy strings
 // Groovy regex
-- [ ] The output of the assertion errors in our tests is quite useless. Let's replace the assertions with {url-groovy-testing}#_power_assertions[Power Assertions].
+- [ ] The output of the assertion errors in our tests is quite useless.
+Let's replace the assertions with {url-groovy-testing}#_power_assertions[Power Assertions].
 // power assertions
-- [ ] Try to fix the remaining tests. You might find {url-groovy-differences}#_multi_methods[the paragraph about Multi-methods] pretty useful here.
+- [ ] Try to fix the remaining tests.
+You might find {url-groovy-differences}#_multi_methods[the paragraph about Multi-methods] pretty useful here.
 // runtime method selection
 - [ ] Make the test truly Groovy.
 // collection literals
 - [ ] Change the various service initializations to use the {url-groovy-style-guide}#_initializing_beans_with_named_parameters_and_the_default_constructor[named parameters constructor].
 // named parameters constructor
 
-== Part 3: Let's get Groovy
+== Part 4: Let's get Groovy
 
 In this part we add some more Groovy power to the existing classes and tests.
 
-- [ ] That `hashCode` and `equals` implementation are noisy and easily forgotten to be adjusted. Let's play with annotations from the {url-groovy-transform-package-doc}[`groovy.transform` package].
+- [ ] That `hashCode` and `equals` implementation are noisy and easily forgotten to be adjusted.
+Let's play with annotations from the {url-groovy-transform-package-doc}[`groovy.transform` package].
 // transform toString & hashCode
-- [ ] The email address should be read-only, too. See if you find an even better annotation now.
+- [ ] The email address should be read-only, too.
+See if you find an even better annotation now.
 // immutable => map constructor
-- [ ] Read {url-groovy-json}[Parsing and producing JSON] and extend the link:{path-person-groovy-class}[`Person` Groovy class] with a `toJson` method which returns the properties in pretty printed JSON. Don't forget to extend link:{path-person-groovy-test}[`PersonTest`] (first).
+- [ ] Read {url-groovy-json}[Parsing and producing JSON] and extend the link:{path-person-groovy-class}[`Person` Groovy class] with a `toJson` method which returns the properties in pretty printed JSON.
+Don't forget to extend link:{path-person-groovy-test}[`PersonTest`] (first).
 // JSONOutput, JSONSlurper
 - [ ] ...
 
-== Part 4: Domain Specific Languages (Outlook)
+== Part 5: Domain Specific Languages (Outlook)
 
-This part is about how to create {url-groovy-dsls}[domain specific languages with Groovy]. This is less formal then you might think. Files will still be `.groovy` files, you will still compile them the same way and your IDE will still understand, what you are doing.
+This part is about how to create {url-groovy-dsls}[domain specific languages with Groovy].
+This is less formal then you might think.
+Files will still be `.groovy` files, you will still compile them the same way and your IDE will still understand, what you are doing.
 
 - [ ] Replace the `addAll` method with the `<<<` operator, so the following test succeeds:
 +
