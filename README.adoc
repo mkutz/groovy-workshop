@@ -81,7 +81,7 @@ mv {path-person-service-java-class} \
 ----
 +
 Try to compile.
-- [ ] Fix the compile errors and run the tests.
+Fix the compile errors and run the tests.
 +
 You might want to look at the section about {url-groovy-differences}#_lambdas[Lambdas].
 // lambdas & colures
