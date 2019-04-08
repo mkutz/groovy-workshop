@@ -88,9 +88,10 @@ class PersonServiceTest {
         // given
         PersonService service = new PersonService();
         service.addPersons(TODD, TINA, BEAR, ANDREA);
+        Object regex = Pattern.compile("^T.*$");
 
         // expect
-        assertThrows(IllegalArgumentException.class, () -> service.findPersons((Object) Pattern.compile("^T.*$")));
+        assertThrows(IllegalArgumentException.class, () -> service.findPersons(regex));
     }
 
     @Test
