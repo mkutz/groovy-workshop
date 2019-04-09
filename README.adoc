@@ -104,7 +104,7 @@ mv {path-person-java-test} \
 Run it and make it Groovy.
 // JUnit 5 + Groovy
 // alias import (optional)
-- [ ] Now also move link:{path-person-service-java-test}[`PersonServiceTest` Java test]:
+- [x] Now also move link:{path-person-service-java-test}[`PersonServiceTest` Java test]:
 [source,bash,subs=attributes]
 +
 ----
