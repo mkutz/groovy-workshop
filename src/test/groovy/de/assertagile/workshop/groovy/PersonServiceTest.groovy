@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 import java.time.LocalDate
+import java.util.function.Predicate
 import java.util.regex.Pattern
 
 import static groovy.test.GroovyAssert.shouldFail
@@ -33,7 +34,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assert service.getAllPersons() == Set.of(TODD, BEAR, ANDREA)
+        assert service.getAllPersons() == Set.of(TODD, TINA, BEAR, ANDREA)
     }
 
     @Test
@@ -86,10 +87,9 @@ class PersonServiceTest {
         // given
         PersonService service = new PersonService()
         service.addPersons(TODD, TINA, BEAR, ANDREA)
-        Object regex = Pattern.compile(/^T.*$/)
 
         // expect
-        shouldFail(IllegalArgumentException.class, { -> service.findPersons(regex) })
+        shouldFail(IllegalArgumentException.class, { -> service.findPersons(Pattern.compile(/^T.*$/) as Object) })
     }
 
     @Test
@@ -100,7 +100,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assert service.findPersons({ person -> person.getName().length() > 11 }) == Set.of(BEAR)
+        assert service.findPersons({ person -> person.getName().length() > 11 } as Predicate) == Set.of(BEAR)
     }
 
     @Test

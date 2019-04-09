@@ -122,7 +122,7 @@ Let's replace the assertions with {url-groovy-testing}#_power_assertions[Power A
 Actually the Power Assertions won't help with the current failures. Try to break a test intentionally to see the "Power". E.g. remove one `Person` in the second test's assertion.
 // power assertions
 // GroovyAssert
-- [ ] Try to fix the remaining tests.
+- [x] Try to fix the remaining tests.
 You might find {url-groovy-differences}#_multi_methods[the paragraph about Multi-methods] pretty useful here.
 // runtime method selection
 - [ ] Make the test truly Groovy.
