@@ -127,7 +127,7 @@ You might find {url-groovy-differences}#_multi_methods[the paragraph about Multi
 // runtime method selection
 - [x] Make the test truly Groovy.
 // collection literals
-- [ ] Change the various service initializations to use the {url-groovy-style-guide}#_initializing_beans_with_named_parameters_and_the_default_constructor[named parameters constructor].
+- [x] Change the various service initializations to use the {url-groovy-style-guide}#_initializing_beans_with_named_parameters_and_the_default_constructor[named parameters constructor].
 // named parameters constructor
 
 == Part 4: Let's get Groovy

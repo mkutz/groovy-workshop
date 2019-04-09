@@ -29,8 +29,7 @@ class PersonServiceTest {
     @DisplayName("getAllPersons returns all persons added")
     void getAllPersons2() {
         // given
-        PersonService service = new PersonService()
-        service.addPersons(TODD, TINA, BEAR, ANDREA)
+        PersonService service = new PersonService(persons: [TODD, TINA, BEAR, ANDREA])
 
         // expect
         assert service.allPersons == [TODD, TINA, BEAR, ANDREA] as Set
@@ -40,8 +39,7 @@ class PersonServiceTest {
     @DisplayName("findPerson returns the named person")
     void findPerson1() {
         // given
-        PersonService service = new PersonService()
-        service.addPersons(TODD, TINA, BEAR, ANDREA)
+        PersonService service = new PersonService(persons: [TODD, TINA, BEAR, ANDREA])
 
         // expect
         assert service.findPerson(TODD.name) == Optional.of(TODD)
@@ -51,8 +49,7 @@ class PersonServiceTest {
     @DisplayName("findPerson an empty optional if name is unknown")
     void findPerson2() {
         // given
-        PersonService service = new PersonService()
-        service.addPersons(TODD, TINA, BEAR, ANDREA)
+        PersonService service = new PersonService(persons: [TODD, TINA, BEAR, ANDREA])
 
         // expect
         assert service.findPerson("Unknown").empty
@@ -62,8 +59,7 @@ class PersonServiceTest {
     @DisplayName("findPersons returns all persons matching the given pattern")
     void findPersonsPattern1() {
         // given
-        PersonService service = new PersonService()
-        service.addPersons(TODD, TINA, BEAR, ANDREA)
+        PersonService service = new PersonService(persons: [TODD, TINA, BEAR, ANDREA])
 
         // expect
         assert service.findPersons(~/^T.*$/) == [TINA, TODD] as Set
@@ -73,8 +69,7 @@ class PersonServiceTest {
     @DisplayName("findPersons returns all persons with the given birthday")
     void findPersonsLocalDate1() {
         // given
-        PersonService service = new PersonService()
-        service.addPersons(TODD, TINA, BEAR, ANDREA)
+        PersonService service = new PersonService(persons: [TODD, TINA, BEAR, ANDREA])
 
         // expect
         assert service.findPersons(ANDREA.birthday) == [ANDREA] as Set
@@ -84,8 +79,7 @@ class PersonServiceTest {
     @DisplayName("findPersons by object throws IllegalArgumentException")
     void findPersonsByObject() {
         // given
-        PersonService service = new PersonService()
-        service.addPersons(TODD, TINA, BEAR, ANDREA)
+        PersonService service = new PersonService(persons: [TODD, TINA, BEAR, ANDREA])
 
         // expect
         shouldFail IllegalArgumentException, { -> service.findPersons(~/^T.*$/ as Object) }
@@ -95,8 +89,7 @@ class PersonServiceTest {
     @DisplayName("findPersons returns fulfilling the given predicate")
     void findPersonsByPredicate() {
         // given
-        PersonService service = new PersonService()
-        service.addPersons(TODD, TINA, BEAR, ANDREA)
+        PersonService service = new PersonService(persons: [TODD, TINA, BEAR, ANDREA])
 
         // expect
         assert service.findPersons({ person -> person.name.length() > 11 } as Predicate) == [BEAR] as Set
@@ -106,8 +99,7 @@ class PersonServiceTest {
     @DisplayName("addPerson does not add duplicates")
     void addPerson() {
         // given
-        PersonService service = new PersonService()
-        service.addPersons(TODD)
+        PersonService service = new PersonService(persons: [TODD])
 
         // when
         service.addPersons(new Person(TODD.name, TODD.birthday))
