@@ -118,6 +118,8 @@ Maybe you can find a creative way to fix that without using a `\` in the {url-gr
 // Groovy regex
 - [ ] The output of the assertion errors in our tests is quite useless.
 Let's replace the assertions with {url-groovy-testing}#_power_assertions[Power Assertions] and the {url-groovy-testing}#_junit_4(`GroovyAssert` util).
++
+Actually the Power Assertions won't help with the current failures. Try to break a test intentionally to see the "Power". E.g. remove one `Person` in the second test's assertion.
 // power assertions
 // GroovyAssert
 - [ ] Try to fix the remaining tests.
