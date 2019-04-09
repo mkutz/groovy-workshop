@@ -117,8 +117,9 @@ Maybe you can find a creative way to fix that without using a `\` in the {url-gr
 // slashy strings
 // Groovy regex
 - [ ] The output of the assertion errors in our tests is quite useless.
-Let's replace the assertions with {url-groovy-testing}#_power_assertions[Power Assertions].
+Let's replace the assertions with {url-groovy-testing}#_power_assertions[Power Assertions] and the {url-groovy-testing}#_junit_4(`GroovyAssert` util).
 // power assertions
+// GroovyAssert
 - [ ] Try to fix the remaining tests.
 You might find {url-groovy-differences}#_multi_methods[the paragraph about Multi-methods] pretty useful here.
 // runtime method selection
