@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 import java.time.LocalDate
 import java.util.regex.Pattern
 
-import static org.junit.jupiter.api.Assertions.*
+import static groovy.test.GroovyAssert.shouldFail
 
 class PersonServiceTest {
 
@@ -22,7 +22,7 @@ class PersonServiceTest {
         PersonService service = new PersonService()
 
         // expect
-        assertEquals(Set.of(), service.getAllPersons())
+        assert service.getAllPersons() == Set.of()
     }
 
     @Test
@@ -33,7 +33,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assertEquals(Set.of(TODD, TINA, BEAR, ANDREA), service.getAllPersons())
+        assert service.getAllPersons() == Set.of(TODD, BEAR, ANDREA)
     }
 
     @Test
@@ -44,7 +44,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assertEquals(Optional.of(TODD), service.findPerson(TODD.getName()))
+        assert service.findPerson(TODD.getName()) == Optional.of(TODD)
     }
 
     @Test
@@ -55,7 +55,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assertTrue(service.findPerson("Unknown").isEmpty())
+        assert service.findPerson("Unknown").isEmpty()
     }
 
     @Test
@@ -66,7 +66,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assertEquals(Set.of(TINA, TODD), service.findPersons(Pattern.compile(/^T.*$/)))
+        assert service.findPersons(Pattern.compile(/^T.*$/)) == Set.of(TINA, TODD)
     }
 
     @Test
@@ -77,7 +77,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assertEquals(Set.of(ANDREA), service.findPersons(ANDREA.getBirthday()))
+        assert service.findPersons(ANDREA.getBirthday()) == Set.of(ANDREA)
     }
 
     @Test
@@ -89,7 +89,7 @@ class PersonServiceTest {
         Object regex = Pattern.compile(/^T.*$/)
 
         // expect
-        assertThrows(IllegalArgumentException.class, { -> service.findPersons(regex) })
+        shouldFail(IllegalArgumentException.class, { -> service.findPersons(regex) })
     }
 
     @Test
@@ -100,7 +100,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assertEquals(Set.of(BEAR), service.findPersons({ person -> person.getName().length() > 11 }))
+        assert service.findPersons({ person -> person.getName().length() > 11 }) == Set.of(BEAR)
     }
 
     @Test
@@ -114,6 +114,6 @@ class PersonServiceTest {
         service.addPersons(new Person(TODD.getName(), TODD.getBirthday()))
 
         // then
-        assertEquals(Set.of(TODD), service.getAllPersons())
+        assert service.getAllPersons() == Set.of(TODD)
     }
 }
