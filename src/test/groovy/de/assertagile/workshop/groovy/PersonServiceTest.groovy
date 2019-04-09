@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test
 
 import java.time.LocalDate
 import java.util.function.Predicate
-import java.util.regex.Pattern
 
 import static groovy.test.GroovyAssert.shouldFail
 
@@ -23,7 +22,7 @@ class PersonServiceTest {
         PersonService service = new PersonService()
 
         // expect
-        assert service.getAllPersons() == Set.of()
+        assert service.allPersons == [] as Set
     }
 
     @Test
@@ -34,7 +33,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assert service.getAllPersons() == Set.of(TODD, TINA, BEAR, ANDREA)
+        assert service.allPersons == [TODD, TINA, BEAR, ANDREA] as Set
     }
 
     @Test
@@ -45,7 +44,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assert service.findPerson(TODD.getName()) == Optional.of(TODD)
+        assert service.findPerson(TODD.name) == Optional.of(TODD)
     }
 
     @Test
@@ -56,7 +55,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assert service.findPerson("Unknown").isEmpty()
+        assert service.findPerson("Unknown").empty
     }
 
     @Test
@@ -67,7 +66,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assert service.findPersons(Pattern.compile(/^T.*$/)) == Set.of(TINA, TODD)
+        assert service.findPersons(~/^T.*$/) == [TINA, TODD] as Set
     }
 
     @Test
@@ -78,7 +77,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assert service.findPersons(ANDREA.getBirthday()) == Set.of(ANDREA)
+        assert service.findPersons(ANDREA.birthday) == [ANDREA] as Set
     }
 
     @Test
@@ -89,7 +88,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        shouldFail(IllegalArgumentException.class, { -> service.findPersons(Pattern.compile(/^T.*$/) as Object) })
+        shouldFail IllegalArgumentException, { -> service.findPersons(~/^T.*$/ as Object) }
     }
 
     @Test
@@ -100,7 +99,7 @@ class PersonServiceTest {
         service.addPersons(TODD, TINA, BEAR, ANDREA)
 
         // expect
-        assert service.findPersons({ person -> person.getName().length() > 11 } as Predicate) == Set.of(BEAR)
+        assert service.findPersons({ person -> person.name.length() > 11 } as Predicate) == [BEAR] as Set
     }
 
     @Test
@@ -111,9 +110,9 @@ class PersonServiceTest {
         service.addPersons(TODD)
 
         // when
-        service.addPersons(new Person(TODD.getName(), TODD.getBirthday()))
+        service.addPersons(new Person(TODD.name, TODD.birthday))
 
         // then
-        assert service.getAllPersons() == Set.of(TODD)
+        assert service.allPersons == [TODD] as Set
     }
 }
