@@ -137,7 +137,7 @@ In this part we add some more Groovy power to the existing classes and tests.
 - [x] That `hashCode` and `equals` implementation are noisy and easily forgotten to be adjusted.
 Let's play with annotations from the {url-groovy-transform-package-doc}[`groovy.transform` package].
 // transform toString & hashCode
-- [ ] The email address should be read-only, too.
+- [x] The email address should be read-only, too.
 See if you find an even better annotation now.
 // immutable => map constructor
 - [ ] Read {url-groovy-json}[Parsing and producing JSON] and extend the link:{path-person-groovy-class}[`Person` Groovy class] with a `toJson` method which returns the properties in pretty printed JSON.

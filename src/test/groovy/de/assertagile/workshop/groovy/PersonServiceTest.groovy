@@ -10,10 +10,10 @@ import static groovy.test.GroovyAssert.shouldFail
 
 class PersonServiceTest {
 
-    private static final Person TODD = new Person("Todd Ler", LocalDate.now().minusDays(300))
+    private static final Person TODD = new Person("Todd Ler", LocalDate.now().minusDays(300), null)
     private static final Person TINA = new Person("Tina Acher", LocalDate.now().minusYears(18).plusDays(1), "tina.acher@assertagile.de")
     private static final Person BEAR = new Person("Bear Lee Grownup", LocalDate.now().minusYears(18), "bear.lee.grownup@assertagile.de")
-    private static final Person ANDREA = new Person("Andrea Aged", LocalDate.now().minusYears(59).plusDays(100))
+    private static final Person ANDREA = new Person("Andrea Aged", LocalDate.now().minusYears(59).plusDays(100), null)
 
     @Test
     @DisplayName("getAllPersons returns empty list initially")
@@ -102,7 +102,7 @@ class PersonServiceTest {
         PersonService service = new PersonService(persons: [TODD])
 
         // when
-        service.addPersons(new Person(TODD.name, TODD.birthday))
+        service.addPersons(new Person(name: TODD.name, birthday: TODD.birthday))
 
         // then
         assert service.allPersons == [TODD] as Set

@@ -1,23 +1,15 @@
 package de.assertagile.workshop.groovy
 
-import groovy.transform.EqualsAndHashCode
-import groovy.transform.ToString
+import groovy.transform.Immutable
 
 import java.time.LocalDate
 
-@EqualsAndHashCode
-@ToString
+@Immutable
 class Person {
 
     final String name
     final LocalDate birthday
-    String emailAddress
-
-    Person(String name, LocalDate birthday, String emailAddress = null) {
-        this.name = name
-        this.birthday = birthday
-        this.emailAddress = emailAddress
-    }
+    final String emailAddress
 
     boolean isOfAge() {
         !LocalDate.now().minusYears(18).isBefore(birthday)

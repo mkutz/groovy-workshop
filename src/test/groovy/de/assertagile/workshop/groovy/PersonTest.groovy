@@ -12,7 +12,7 @@ class PersonTest {
     @DisplayName("isOfAge return true for a birthday more then 18 years ago")
     void isOfAge1() {
         // given
-        Person person = new Person("Andrea Aged", today().minusYears(59).plusDays(100))
+        Person person = new Person("Andrea Aged", today().minusYears(59).plusDays(100), null)
 
         // expect
         assertTrue(person.ofAge)
@@ -22,7 +22,7 @@ class PersonTest {
     @DisplayName("isOfAge return true for a birthday exactly 18 years ago")
     void isOfAge2() {
         // given
-        Person person = new Person("Bear Lee Grownup", today().minusYears(18))
+        Person person = new Person("Bear Lee Grownup", today().minusYears(18), null)
 
         // expect
         assertTrue(person.ofAge)
@@ -32,7 +32,7 @@ class PersonTest {
     @DisplayName("isOfAge return false for a birthday just one day less then 18 years ago")
     void isOfAge3() {
         // given
-        Person person = new Person("Tina Acher", today().minusYears(18).plusDays(1))
+        Person person = new Person("Tina Acher", today().minusYears(18).plusDays(1), null)
 
         // expect
         assertFalse(person.ofAge)
@@ -42,7 +42,7 @@ class PersonTest {
     @DisplayName("isOfAge return false for a birthday less then 18 years ago")
     void isOfAge4() {
         // given
-        Person person = new Person("Todd Ler", today().minusDays(300))
+        Person person = new Person("Todd Ler", today().minusDays(300), null)
 
         // expect
         assertFalse(person.ofAge)
