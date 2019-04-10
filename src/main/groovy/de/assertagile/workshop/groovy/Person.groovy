@@ -1,10 +1,12 @@
 package de.assertagile.workshop.groovy
 
-import groovy.transform.Immutable
+import groovy.transform.EqualsAndHashCode
+import groovy.transform.ToString
 
 import java.time.LocalDate
 
-@Immutable
+@EqualsAndHashCode
+@ToString
 class Person {
 
     final String name
