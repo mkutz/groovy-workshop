@@ -134,7 +134,7 @@ You might find {url-groovy-differences}#_multi_methods[the paragraph about Multi
 
 In this part we add some more Groovy power to the existing classes and tests.
 
-- [ ] That `hashCode` and `equals` implementation are noisy and easily forgotten to be adjusted.
+- [x] That `hashCode` and `equals` implementation are noisy and easily forgotten to be adjusted.
 Let's play with annotations from the {url-groovy-transform-package-doc}[`groovy.transform` package].
 // transform toString & hashCode
 - [ ] The email address should be read-only, too.
