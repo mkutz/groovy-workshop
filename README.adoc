@@ -24,6 +24,7 @@ v0.1, 2019-04-05
 :url-groovy-testing: http://groovy-lang.org/testing.html
 :url-groovy-json: http://groovy-lang.org/json.html
 :url-groovy-dsls: http://groovy-lang.org/dsls.html
+:url-groovy-metaprogramming: http://groovy-lang.org/metaprogramming.html
 
 Workshop for {url-groovy-homepage}[Groovy] programming language with a special focus on Java(TM) developers.
 
@@ -135,7 +136,7 @@ You might find {url-groovy-differences}#_multi_methods[the paragraph about Multi
 In this part we add some more Groovy power to the existing classes and tests.
 
 - [x] That `hashCode` and `equals` implementation are noisy and easily forgotten to be adjusted.
-Let's play with annotations from the {url-groovy-transform-package-doc}[`groovy.transform` package].
+Let's play with some {url-groovy-metaprogramming}#_compile_time_metaprogramming[compile time meta-programming] using annotations from the {url-groovy-transform-package-doc}[`groovy.transform` package].
 // transform toString & hashCode
 - [x] The email address should be read-only, too.
 See if you find an even better annotation now.
