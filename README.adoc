@@ -1,4 +1,4 @@
-= Groovy Workshop image:https://travis-ci.org/mkutz/groovy-workshop.svg?branch=master["Build Status", link="https://travis-ci.org/mkutz/groovy-workshop"]
+= Groovy Workshop image:https://github.com/mkutz/groovy-workshop/actions/workflows/build.yml/badge.svg["Build Status"], link="https://github.com/mkutz/groovy-workshop/actions/workflows/build.yml"]
 Michael Kutz <mail@assertagile.de>
 v0.1, 2019-04-05
 :toc:
