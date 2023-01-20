@@ -85,9 +85,9 @@ Try to compile.
 Fix the compile errors and run the tests.
 +
 You might want to look at the section about {url-groovy-differences}#_lambdas[Lambdas].
-// lambdas & colures
+// lambdas & closures
 - [ ] Again try to make link:{path-person-service-groovy-class}[`PersonService` Groovy class] truly Groovy.
-// list sytax
+// list syntax
 // find & findAll
 
 == Part 3: Groovy Testing (Basics)
@@ -149,7 +149,7 @@ Don't forget to extend link:{path-person-groovy-test}[`PersonTest`] (first).
 == Part 5: Domain Specific Languages (Outlook)
 
 This part is about how to create {url-groovy-dsls}[domain specific languages with Groovy].
-This is less formal then you might think.
+This is less formal than you might think.
 Files will still be `.groovy` files, you will still compile them the same way and your IDE will still understand, what you are doing.
 
 - [ ] Replace the `addAll` method with the `<<<` operator, so the following test succeeds:
