@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation platform('org.apache.groovy:groovy-bom:4.0.18')
+    implementation platform('org.apache.groovy:groovy-bom:4.0.19')
     implementation 'org.apache.groovy:groovy'
 
     testImplementation platform('org.spockframework:spock-bom:2.3-groovy-4.0')
