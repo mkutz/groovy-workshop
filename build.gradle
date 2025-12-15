@@ -23,7 +23,7 @@ dependencies {
     implementation platform('org.apache.groovy:groovy-bom:4.0.28')
     implementation 'org.apache.groovy:groovy'
 
-    testImplementation platform('org.spockframework:spock-bom:2.3-groovy-4.0')
+    testImplementation platform('org.spockframework:spock-bom:2.4-groovy-5.0')
     testImplementation 'org.spockframework:spock-core'
 
     testImplementation platform('org.junit:junit-bom:5.11.4')
